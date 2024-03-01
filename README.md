@@ -26,11 +26,16 @@ To run this project locally, follow these steps:
 
 To use Honeyduke Shop, follow these steps:
 
-1. To start the backend part create the db user and db
-2. Write all credentials in config.json
-3. Migrate all models into your db
-4. Make sure your PostgreSQL app is running
-5. Write in terminal npm run start
+
+1. To start the backend part, create the db user and db.
+2. Write all credentials in `config.json`.
+3. Migrate all models into your db:
+    3.1 In terminal, write `npm run migration-generate`.
+    3.2 In terminal, write `npm run migration-up`.
+    3.3 In terminal, write `npm run migration-down`.
+4. Make sure your PostgreSQL app is running.
+5. Write in terminal `npm run start`.
+
 ...
 
 ## Future Development
