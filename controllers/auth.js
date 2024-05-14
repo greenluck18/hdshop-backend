@@ -35,7 +35,7 @@ class AuthController {
         email
       } = req.body;
       const existingItem = await Users.findOne({ where: { login: login?.trim() } });
-
+      
       if (existingItem) {
         res.status(404).json({ error: 'Error user already exist' });
         return;

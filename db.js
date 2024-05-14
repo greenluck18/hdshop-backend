@@ -1,9 +1,8 @@
 
 import { readFile } from 'fs/promises';
 import { Sequelize } from "sequelize";
-//import Config from './config/config.json' assert {type: 'json'};
 
-const Config = JSON.parse(await readFile('./config/config.json', 'utf8'));
+const config = JSON.parse(await readFile('./config/config.json', 'utf8'));
 
 const {
     username,
@@ -11,7 +10,7 @@ const {
     database,
     host,
     port
-} = Config.development;
+} = config.db;
 
 const sequelize = new Sequelize(`postgres://${username}:${password}@${host}:${port}/${database}`);
 
