@@ -79,6 +79,7 @@ class AuthController {
               "id": user.dataValues.id,
               "email": user.dataValues.email,
               "first_name": user.dataValues.first_name,
+              "expiresAt": new Date().getTime() + 3600
             }, this.privateKey);
 
           console.log(accessToken);
@@ -109,6 +110,9 @@ class AuthController {
         return res.status(403).json({ message: 'Forbidden - Invalid Token' });
       }
       req.user = user;
+      if (new Date().getTime() > user.expiresAt) {
+        return res.status(403).json({ message: 'Forbidden - Token Expired' });
+      }
       next();
     });
   }
