@@ -1,17 +1,16 @@
-
-import { readFile } from 'fs/promises';
 import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
-const config = JSON.parse(await readFile('./config/config.json', 'utf8'));
+dotenv.config();
 
 const {
-    username,
-    password,
-    database,
-    host,
-    port
-} = config.db;
+    DB_USERNAME,
+    DB_PASSWORD,
+    DB_DATABASE,
+    DB_HOST,
+    DB_PORT
+} = process.env;
 
-const sequelize = new Sequelize(`postgres://${username}:${password}@${host}:${port}/${database}`);
+const sequelize = new Sequelize(`postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`);
 
 export { sequelize }
