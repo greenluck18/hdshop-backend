@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node_modules/.bin/nodemon index.js",
     "migration-generate": "./node_modules/.bin/sequelize-cli migration:generate --name new-migration",
     "migration-up": "./node_modules/.bin/sequelize db:migrate",
     "migration-down": "./node_modules/.bin/sequelize db:migrate:undo",
