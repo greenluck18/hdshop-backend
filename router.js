@@ -4,6 +4,10 @@ import cors from "cors";
 import { HealthCheckController } from "./controllers/health_check.js";
 import { ItemsController } from "./controllers/items.js";
 import { AuthController } from "./controllers/auth.js";
+import { config as dotenvConfig } from "dotenv";
+dotenvConfig();
+
+
 
 /**
  * @class Router
@@ -18,6 +22,7 @@ class Router {
     this.healthCheckController = new HealthCheckController();
     this.itemsController = new ItemsController();
     this.authController = new AuthController();
+    this.port = process.env.PORT || 3001;
   }
 
   init() {
@@ -80,8 +85,8 @@ class Router {
     // });
 
     // Listen server with error handling.
-    this.app.listen(3001, () => {
-      console.log("Server is running on port 3001");
+    this.app.listen(this.port, () => {
+      console.log(`Server is running on port ${this.port}`);
     }).on("error", (error) => {
       console.error("Error starting server:", error);
       process.exit(1);
