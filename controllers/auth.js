@@ -75,7 +75,7 @@ class AuthController {
               "id": user.dataValues.id,
               "email": user.dataValues.email,
               "first_name": user.dataValues.first_name,
-              "expiresAt": new Date().getTime() + 3600
+              "expiresAt": new Date().getTime() + (24 * 60 * 60 * 1000)
             }, this.privateKey);
 
           console.log(accessToken);
