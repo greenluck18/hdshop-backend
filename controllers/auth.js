@@ -38,7 +38,6 @@ class AuthController {
         res.status(404).json({ error: 'Error user already exist' });
         return;
       } else {
-
         const salt = await bcrypt.genSalt(10);
         const user = await Users.create({
           login,
@@ -47,8 +46,7 @@ class AuthController {
           last_name,
           email
         });
-        res.status(201);
-        res.json(user);
+        res.status(201).json({ token: accessToken, userId: user.dataValues.id});
       }
     } catch (err) {
       res.status(500);
