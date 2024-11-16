@@ -11,7 +11,7 @@ export default {
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
-        require: false,
+        require: true,
         rejectUnauthorized: false
       }
     }
@@ -25,7 +25,7 @@ export default {
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
-        require: false,
+        require: true,
         rejectUnauthorized: false 
       }
     }
@@ -39,7 +39,7 @@ export default {
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
-        require: false,
+        require: true,
         rejectUnauthorized: false
       }
     }
