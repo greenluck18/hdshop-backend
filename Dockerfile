@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3001
 
 # Run the database migrations and then start the application
-CMD ["sh", "-c", "npm run migration-up && npm start"]
+CMD ["sh", "-c", "npm start"]
