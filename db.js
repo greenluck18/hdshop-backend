@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
   dialect: "postgres",
   dialectOptions: {
     ssl: {
-      require: true, // This will help you connect to the PostgreSQL database with SSL
+      require: false, // This will help you connect to the PostgreSQL database with SSL
       rejectUnauthorized: false, // You can adjust this based on your needs
     },
     connectTimeout: 30000, // Optional: set a connection timeout (in ms)
