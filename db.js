@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const { DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_HOST, DB_PORT } = process.env;
-console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_HOST, DB_PORT);
 // const sequelize = new Sequelize(`postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`);
 
 const sequelize = new Sequelize({
