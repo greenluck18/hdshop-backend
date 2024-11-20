@@ -26,7 +26,7 @@ class Router {
   }
 
   init() {
-    this.app.use(cors());
+    this.app.use(cors({ origin: "http://localhost:3000" }));
     this.app.use(express.json());
     this.app.get(
       "/ping",
@@ -72,7 +72,8 @@ class Router {
 
     this.app.post(
       "/register",
-      this.authController.createUser.bind(this.authController)
+      cors({ origin: "http://localhost:3000" }),
+      this.authController.createUser.bind(this.authController, )
     );
 
     this.app.post(

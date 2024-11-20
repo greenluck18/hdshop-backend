@@ -89,6 +89,7 @@ class AuthController {
       }
     } catch (err) {
       res.status(500);
+      console.log(res);
       res.json(err);
     }
   }
