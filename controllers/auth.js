@@ -40,13 +40,6 @@ class AuthController {
       } else {
         try {
           const salt = await bcrypt.genSalt(10);
-        }
-        catch (error) {
-          res.status(505);
-          res.json(err);
-        }
-
-        try {
           const user = await Users.create({
             login,
             password: bcrypt.hashSync(password, salt),
