@@ -38,15 +38,29 @@ class AuthController {
         res.status(404).json({ error: 'Error user already exist' });
         return;
       } else {
-        const salt = await bcrypt.genSalt(10);
-        const user = await Users.create({
-          login,
-          password: bcrypt.hashSync(password, salt),
-          first_name,
-          last_name,
-          email
-        });
-        res.status(201).json({ token: accessToken, userId: user.dataValues.id});
+        try {
+          const salt = await bcrypt.genSalt(10);
+        }
+        catch (error) {
+          res.status(505);
+          res.json(err);
+        }
+
+        try {
+          const user = await Users.create({
+            login,
+            password: bcrypt.hashSync(password, salt),
+            first_name,
+            last_name,
+            email
+          });
+          res.status(201).json({ userId: user.dataValues.id});
+        }
+        catch (error) {
+          res.status(505);
+          res.json(err);
+        }
+        
       }
     } catch (err) {
       res.status(500);
