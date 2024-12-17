@@ -122,7 +122,9 @@ class AuthController {
   }
   async allUsers(req, res) {
     try {
-      const users = await Users.findAll();
+      const users = await Users.findAll({
+        attributes: ['login', 'email'] 
+      });
       res.status(200).json(users);
     } catch (err) {
       res.status(500);
