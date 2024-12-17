@@ -99,7 +99,18 @@ module.exports = {
   async down (queryInterface, Sequelize) {
    
     await queryInterface.bulkDelete('items', {
-      name: ['fire_crab', 'flobberworm', 'giant_squid', 'hippogriff', 'lunarynix', 'phoenix', 'basilisk', 'dragon', 'unicorn', 'witch']
+      name: [
+        'Fire crab',
+        'Flobberworm',
+        'Giant squid',
+        'Hippogriff',
+        'Lunarynix',
+        'Phoenix',
+        'Basilisk',
+        'Dragon',
+        'Unicorn',
+        'Witch'
+      ]
     }, {});
   }
 };
