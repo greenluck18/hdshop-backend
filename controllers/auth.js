@@ -120,6 +120,15 @@ class AuthController {
       next();
     });
   }
+  async allUsers(req, res) {
+    try {
+      const users = await Users.findAll();
+      res.status(200).json(users);
+    } catch (err) {
+      res.status(500);
+      res.json(err);
+    }
+  }
 }
 
 export { AuthController };

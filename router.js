@@ -23,6 +23,7 @@ class Router {
     this.itemsController = new ItemsController();
     this.authController = new AuthController();
     this.port = process.env.PORT || 3001;
+
   }
 
   init() {
@@ -75,7 +76,10 @@ class Router {
       cors({ origin: "http://localhost:3000" }),
       this.authController.createUser.bind(this.authController, )
     );
-
+    this.app.get(
+      "/allUsers",
+      this.authController.ping.bind(tthis.authController)
+    );
     this.app.post(
       "/login",
       this.authController.login.bind(this.authController)
