@@ -78,7 +78,7 @@ class Router {
     );
     this.app.get(
       "/allUsers",
-      this.authController.ping.bind(tthis.authController)
+      this.authController.allUsers.bind(this.authController)
     );
     this.app.post(
       "/login",
