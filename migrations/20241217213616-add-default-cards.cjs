@@ -1,5 +1,8 @@
-'use strict';
-
+/**
+   * Migarte up.
+   * @param {object} queryInterface Query interface.
+   * @param {object} Sequelize Sequelize class.
+*/
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('items', [
